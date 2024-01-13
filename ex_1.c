@@ -23,8 +23,9 @@ int main() {
 	printf("%d\n", (firstNumber[3] - 48) ^ (secondNumber[3] - 48));
 	
 	// EXERCISE 2
-	unsigned int num1, num2, lastFourDigits;
-	int sum;
+	printf("\n");
+	unsigned int num1, num2;
+	unsigned int sum;
 
 	printf("Exercise 2:\n");
 	printf("Enter 2 hexadecimal numbers:\n");
@@ -35,12 +36,16 @@ int main() {
 	scanf("%x", &num2);
 	
 	sum = num1 + num2;	
-	lastFourDigits = sum & 0xF;
 	
 	printf("\n%X + %X = %X\n", num1, num2, sum);
-	printf("The last 4 binary digits of the sum are %.4b\n", lastFourDigits);
+	printf("The last 4 binary digits of the sum are ");
+	printf("%u", (sum >> 3) & 0x1);
+	printf("%u", (sum >> 2) & 0x1);
+	printf("%u", (sum >> 1) & 0x1);
+	printf("%u\n", (sum) & 0x1);
 	
 	// EXERCISE 3
+	printf("\n");
 	int base, number, temp;
 	int numberInNewBase = 0, reversedNumber = 0;
 
@@ -66,9 +71,10 @@ int main() {
 	temp /= 10;
 	// Fifth Iteration
 	numberInNewBase += (temp % 10) * pow(base, 4);
-	printf("The decimal\nvalue of %d in base %d is %d\n", number, base, numberInNewBase);
+	printf("The decimal value of %d in base %d is %d\n", number, base, numberInNewBase);
 	
 	// EXERCISE 4
+	printf("\n");
 	int num, bitNumber;
 	printf("Exercise 4:\n");
 	
@@ -76,8 +82,8 @@ int main() {
 	scanf("%d", &num);
 	printf("I want to know the value of bit number: ");
 	scanf("%d", &bitNumber);
-	int bitValue = num >> (bitNumber - 1);
-	printf("\nThe value of the %d bit in %d is %.1b\n", bitNumber, num, bitValue);
+	unsigned int bitValue = (num >> (bitNumber - 1)) & 0x1;
+	printf("\nThe value of the %d bit in %d is %.1u\n", bitNumber, num, bitValue);
 	printf("Congrats! You've found the philosopher's stone!\n");
 	return 0;
 }
