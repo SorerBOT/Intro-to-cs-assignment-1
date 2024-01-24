@@ -1,31 +1,45 @@
+/************************
+ * Alon Filler
+ * 216872374
+ * Assignment 1
+ *************************/
+
 #include <stdio.h>
 #include <math.h>
 
 int main() {
-	// EXERCISE 1
-	char firstNumber[5], secondNumber[5], result[5];
+	/*
+		EXERCISE 1
+		Input: Two char arrays representing the digits of two numbers
+		Output: The result of applying the XOR operation on the nubmer
+	*/
+	char first1, first2, first3, first4;
+	char second1, second2, second3, second4;
 	printf("Exercise 1:\n");
 	printf("Please enter 2 binary strings with 4 digits:\n");
 	
 	printf("Binary 1: ");
-	scanf("%4s", firstNumber);
+	scanf("%c%c%c%c", &first1, &first2, &first3, &first4);
 
 	printf("Binary 2: ");
-	scanf("%4s", secondNumber);
+	scanf(" %c%c%c%c", &second1, &second2, &second3, &second4);
 	
-	printf("\n%s\n", firstNumber);
+	printf("\n%c%c%c%c\n", first1, first2, first3, first4);
 	printf("^");
-	printf("\n%s\n", secondNumber);
+	printf("\n%c%c%c%c\n", second1, second2, second3, second4);
 	printf("--------\n");
-	printf("%d", (firstNumber[0] - 48) ^ (secondNumber[0] - 48));
-	printf("%d", (firstNumber[1] - 48) ^ (secondNumber[1] - 48));
-	printf("%d", (firstNumber[2] - 48) ^ (secondNumber[2] - 48));
-	printf("%d\n", (firstNumber[3] - 48) ^ (secondNumber[3] - 48));
-	
-	// EXERCISE 2
+	printf("%d", (first1 - 48) ^ (second1 - 48));
+	printf("%d", (first2 - 48) ^ (second2 - 48));
+	printf("%d", (first3 - 48) ^ (second3 - 48));
+	printf("%d\n", (first4 - 48) ^ (second4 - 48));
+	/*
+		EXERCISE 2
+		Input: Two hexadecimal numbers
+		Output: The last four binary digits of the numbers' sum
+	*/
 	printf("\n");
-	unsigned int num1, num2;
-	unsigned int sum;
+	int num1, num2;
+	int sum;
 
 	printf("Exercise 2:\n");
 	printf("Enter 2 hexadecimal numbers:\n");
@@ -43,8 +57,11 @@ int main() {
 	printf("%u", (sum >> 2) & 0x1);
 	printf("%u", (sum >> 1) & 0x1);
 	printf("%u\n", (sum) & 0x1);
-	
-	// EXERCISE 3
+	/*
+		EXERCISE 3
+		Input: A base between 2-9 and a number in that base
+		Output: The decimal value of the number
+	*/
 	printf("\n");
 	int base, number, temp;
 	int numberInNewBase = 0, reversedNumber = 0;
@@ -72,8 +89,11 @@ int main() {
 	// Fifth Iteration
 	numberInNewBase += (temp % 10) * pow(base, 4);
 	printf("The decimal value of %d in base %d is %d\n", number, base, numberInNewBase);
-	
-	// EXERCISE 4
+	/*
+		EXERCISE 4
+		Input: A number and an index of a bit
+		Output: The binary value of that bit in the number
+	*/
 	printf("\n");
 	int num, bitNumber;
 	printf("Exercise 4:\n");
